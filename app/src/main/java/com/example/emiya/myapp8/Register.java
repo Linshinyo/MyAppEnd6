@@ -61,7 +61,7 @@ public class Register extends AppCompatActivity
         {
             //使用GET方式經由網址傳送參數
             new1 n2 = (new1)getApplicationContext();
-            String urlString = "http://1.168.33.119/app_register.php?id=" + mid + "&pw=" + mpw + "&pw2=" + mpw2 + "&telephone=" + mtel + "&address=" + maddr;
+            String urlString = n2.getconntion()+"/app_register.php?id=" + mid + "&pw=" + mpw + "&pw2=" + mpw2 + "&telephone=" + mtel + "&address=" + maddr;
 
 
             try

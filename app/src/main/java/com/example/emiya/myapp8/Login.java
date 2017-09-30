@@ -33,7 +33,8 @@ public class Login extends AppCompatActivity
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
+        n2 = (new1)getApplicationContext();
+        n2.setconntion("http://125.224.11.37");
 
 
 
@@ -46,8 +47,7 @@ public class Login extends AppCompatActivity
 
         n1 = (new1)getApplicationContext();
         n1.setuser(user);
-        n2 = (new1)getApplicationContext();
-        n2.setconntion("http://1.168.33.119");
+
 
         String inputStr="";
         String urlString = n2.getconntion()+"/applogin.php?id="+user+"&pw="+pass;

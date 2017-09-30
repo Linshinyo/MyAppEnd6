@@ -40,8 +40,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-
-
     }
 
     /**
@@ -66,6 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng aa = new LatLng(Double.valueOf(lon),Double.valueOf(lat) );
             mMap.addMarker(new MarkerOptions().position(aa).title("集合地點").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(aa,15));
+
+
         }
         else
         {
@@ -185,34 +185,30 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnPoiClickListener(this);
 
 
-
-
-
-
-
-
     }
 
     @Override
     public void onPoiClick(PointOfInterest pointOfInterest)
     {
-        //回傳值回到開團頁面
-        Intent it = new Intent();
-        it.putExtra("a3",pointOfInterest.name);
-        it.putExtra("a4",Double.toString(pointOfInterest.latLng.latitude));
-        it.putExtra("a5",Double.toString(pointOfInterest.latLng.longitude));
+        //開團才跳轉
+        if ( lat == null ){
+            //回傳值回到開團頁面
+            Intent it = new Intent();
+            it.putExtra("a3",pointOfInterest.name);
+            it.putExtra("a4",Double.toString(pointOfInterest.latLng.latitude));
+            it.putExtra("a5",Double.toString(pointOfInterest.latLng.longitude));
 
+            Intent data=getIntent();
 
+            it.putExtra("ET1",data.getStringExtra("ET1"));
+            it.putExtra("ET2",data.getStringExtra("ET2"));
+            it.putExtra("ET4",data.getStringExtra("ET4"));
+            it.putExtra("ET5",data.getStringExtra("ET5"));
+            it.setClass(MapsActivity.this, Open.class);
+            startActivity(it);
+            finish();
 
-        Intent data=getIntent();
-
-        it.putExtra("ET1",data.getStringExtra("ET1"));
-        it.putExtra("ET2",data.getStringExtra("ET2"));
-        it.putExtra("ET4",data.getStringExtra("ET4"));
-        it.putExtra("ET5",data.getStringExtra("ET5"));
-        it.setClass(MapsActivity.this, Open.class);
-        startActivity(it);
-        finish();
+        }
 
     }
 }
