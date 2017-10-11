@@ -51,7 +51,7 @@ public class information extends Fragment implements ListView.OnItemClickListene
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), Open.class);
                 startActivity(intent);
-                getActivity().finish();
+//                getActivity().finish();
             }
         });
 
