@@ -55,7 +55,7 @@ public class Register extends AppCompatActivity
             Toast.makeText(this,"密碼格式錯誤!",Toast.LENGTH_SHORT).show();
             return;
         }
-        if (mpw != mpw2){
+        if (!mpw.equals(mpw2)){
             Toast.makeText(this,"兩次密碼不同!",Toast.LENGTH_SHORT).show();
             return;
         }
